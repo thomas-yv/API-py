@@ -61,19 +61,52 @@ erDiagram
 ### Prérequis
 - Python 3.10+
 
-### Installation
+### 1. Configuration de l'environnement virtuel
+
+**Création de l'environnement virtuel :**
+```bash
+python -m venv venv
+```
+
+**Activation de l'environnement virtuel :**
+- **Windows (PowerShell) :**
+  ```powershell
+  .\venv\Scripts\Activate.ps1
+  ```
+- **Windows (CMD) :**
+  ```cmd
+  venv\Scripts\activate.bat
+  ```
+- **Linux / macOS :**
+  ```bash
+  source venv/bin/activate
+  ```
+
+### 2. Installation des dépendances
 ```bash
 pip install -r requirements.txt
 ```
 
-### Lancement du serveur d'API
-```bash
-python main.py
-```
-L'API est accessible sur `http://localhost:8000`.  
-La documentation interactive Swagger est disponible sur `http://localhost:8000/docs`.
+### 3. Lancement du serveur d'API
 
-### Exécution des tests automatisés
+Vous pouvez démarrer le serveur de deux façons :
+
+- **Via le script principal :**
+  ```bash
+  python main.py
+  ```
+- **Ou directement via Uvicorn (avec rechargement automatique) :**
+  ```bash
+  uvicorn main:app --reload
+  ```
+
+L'API est accessible sur : `http://localhost:8000`  
+La documentation interactive Swagger est disponible sur : `http://localhost:8000/docs`  
+La documentation ReDoc est disponible sur : `http://localhost:8000/redoc`
+
+### 4. Exécution des tests automatisés
+
 ```bash
 pytest tests/test_api.py -v
 ```
+*(ou simplement `pytest`)*
